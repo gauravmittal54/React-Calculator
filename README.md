@@ -49,7 +49,7 @@ Make sure you have Node.js and npm installed on your machine.
     npm start
     ```
     
-- Open http://localhost:3000 in your browser to use the calculator.
+5. Open http://localhost:3000 in your browser to use the calculator.
 
 
 
