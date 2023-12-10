@@ -1,0 +1,97 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: linear-gradient(to right, #727171, #dddbdb);
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.calculator-grid {
+  display: grid;
+  margin-top: 2rem;
+  justify-content: center;
+  grid-template-columns: repeat(4, 6rem);
+  grid-template-rows: minmax(7rem, auto) repeat(5, 6rem);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Adding a slight shadow for a raised effect */
+  border-radius: 10px; /* Making the edges rounded */
+}
+
+.calculator-grid > button {
+  cursor: pointer;
+  font-size: 1.5rem;
+  border: 2px solid #555;
+  background-color: #777;
+  color: white;
+  outline: none;
+  width: 100%;
+  height: 100%;
+  transition: background-color 0.2s, color 0.2s, transform 0.1s;
+  border-radius: 8px; /* Making the edges of the buttons rounded */
+}
+
+.calculator-grid > button:hover,
+.calculator-grid > button:focus {
+  background-color: #555;
+  color: #fff;
+}
+
+.span-two {
+  grid-column: span 2;
+}
+
+.output {
+  grid-column: 1 / -1;
+  background-color: #333;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: space-around;
+  padding: 1rem;
+  word-wrap: break-word;
+  word-break: break-all;
+  border-radius: 10px; /* Making the edges of the output area rounded */
+}
+
+.output .previous-operand {
+  color: #aaa;
+  font-size: 1.5rem;
+}
+
+.output .current-operand {
+  color: #fff;
+  font-size: 2.5rem;
+}
+
+.history {
+  display: none; /* initially hide history */
+  color: white;
+  cursor: pointer;
+  margin-top: 1rem;
+}
+
+.history.show {
+  display: block; /* show history when the "show" class is present */
+}
+
+.history ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.history li {
+  margin-bottom: 1rem;
+}
+
+.history .expression {
+  font-weight: bold;
+}
+
+.history .result {
+  font-style: italic;
+}
+
+.history p {
+  margin-bottom: 0.5rem;
+}
