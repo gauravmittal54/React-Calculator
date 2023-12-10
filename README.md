@@ -2,9 +2,8 @@
 
 This project is a simple calculator web application built with React. It supports basic arithmetic operations, maintains a history log of calculations, and features a responsive design.
 
-
-![image](https://github.com/gauravmittal54/React-Calculator/assets/61792468/1b2c9605-a558-4ae0-8f0b-23cbc599b1c3)
-
+### Hosted link
+[ReactCalculatorApp](https://reactcalculatorapp-yneh.onrender.com/)
 
 ## Getting Started
 
@@ -46,9 +45,10 @@ Make sure you have Node.js and npm installed on your machine.
 
 4. Run the development server:
 
-```bash
-npm start
-
+    ```bash
+    npm start
+    ```
+    
 - Open http://localhost:3000 in your browser to use the calculator.
 
 
