@@ -28,7 +28,7 @@ Make sure you have Node.js and npm installed on your machine.
 1. Clone the repository:
 
     ```bash
-    git clone https://github.com/your-username/react-calculator.git
+    git clone https://github.com/gauravmittal54/React-Calculator.git
     ```
 
 2. Navigate to the project directory:
