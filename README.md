@@ -1,6 +1,8 @@
 # React Calculator
 
 This project is a simple calculator web application built with React. It supports basic arithmetic operations, maintains a history log of calculations, and features a responsive design.
+![image](https://github.com/gauravmittal54/React-Calculator/assets/61792468/1b2c9605-a558-4ae0-8f0b-23cbc599b1c3)
+
 
 ## Getting Started
 
@@ -17,8 +19,8 @@ Make sure you have Node.js and npm installed on your machine.
 - Responsive Design: Adapts to different screen sizes.
 
 ### Dependencies
-- React
-- Font Awesome - Used for the history icon.
+- [React](https://react.dev/)
+- [Font Awesome](https://fontawesome.com/) - Used for the history icon.
 
 ### Installation
 
