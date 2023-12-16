@@ -22,39 +22,42 @@ export const ACTIONS = {
   EVALUATE: "evaluate",
 }
 
+//reducer being hit when dispatch  is called
 function reducer(state, { type, payload }) {
   switch (type) {
     case ACTIONS.ADD_DIGIT:
-      if (state.overwrite) {
+      if (state.overwrite) { //handles button being clicked without removing  the result of previous evaluated  operation                                      
         return {
           ...state,
           currentOperand: payload.digit,
           overwrite: false,
         }
       }
+      //handles scenario that no multiple only 0 or multiple . in a decimal can be placed
       if (payload.digit === "0" && state.currentOperand === "0") {
         return state
       }
       if (payload.digit === "." && state.currentOperand.includes(".")) {
         return state
       }
-
+      //return state with digit being appended to current operand
       return {
         ...state,
         currentOperand: `${state.currentOperand || ""}${payload.digit}`,
       }
     case ACTIONS.CHOOSE_OPERATION:
+      //does not do anything when nothing is there to evaluate
       if (state.currentOperand == null && state.previousOperand == null) {
         return state
       }
-
+      //appends the operation
       if (state.currentOperand == null) {
         return {
           ...state,
           operation: payload.operation,
         }
       }
-
+      //replace the currentOperand with previousOperand
       if (state.previousOperand == null) {
         return {
           ...state,
@@ -63,7 +66,7 @@ function reducer(state, { type, payload }) {
           currentOperand: null,
         }
       }
-
+      //evaluates an expression even when an operation being clicked not the "=" button and then appends the operaton to the evaluated operand
       return {
         ...state,
         previousOperand: evaluate(state),
@@ -71,10 +74,11 @@ function reducer(state, { type, payload }) {
         currentOperand: null,
       }
     case ACTIONS.CLEAR:
-      return {
+      return {  // set the state properties to it default value
         ...initialState,
       };
     case ACTIONS.DELETE_DIGIT:
+      //remove sthe already evaluated  operand when delete is clicked
       if (state.overwrite) {
         return {
           ...state,
@@ -82,16 +86,19 @@ function reducer(state, { type, payload }) {
           currentOperand: null,
         }
       }
+      //nothing to do when nothing is there and delete is clicked
       if (state.currentOperand == null) return state
+      //make currentOperand null when length is 1
       if (state.currentOperand.length === 1) {
         return { ...state, currentOperand: null }
       }
-
+      //return the currentOperand string by removing its last character
       return {
         ...state,
         currentOperand: state.currentOperand.slice(0, -1),
       }
     case ACTIONS.EVALUATE:
+      //does not evaluate when incomplete info is there
       if (
         state.operation == null ||
         state.currentOperand == null ||
@@ -99,9 +106,9 @@ function reducer(state, { type, payload }) {
       ) {
         return state
       }
-
+      //evaluates
       const result = evaluate(state);
-
+      //sets history for evaluated expression
       const historyEntry = {
         expression: {
           previousOperand: formatOperand(state.previousOperand),
@@ -111,7 +118,7 @@ function reducer(state, { type, payload }) {
         result: formatOperand(result),
         timestamp: new Date().toLocaleString(),
       };
-
+     //return  state with result and history
       return {
         ...state,
         overwrite: true,
@@ -147,7 +154,7 @@ function evaluate({ currentOperand, previousOperand, operation }) {
 }
 
 const INTEGER_FORMATTER = new Intl.NumberFormat("en-us", {
-  maximumFractionDigits: 0,
+  maximumFractionDigits: 0,   //Formats the number without decimal spaces
 })
 function formatOperand(operand) {
   if (operand == null) return
@@ -161,7 +168,7 @@ function App() {
     reducer,
     initialState
   )
-
+  //Logic for toggle history using history button or onclick history text
   const toggleHistory = () => {
     const historyParagraph = document.querySelector('.history');
     historyParagraph.classList.toggle('show');
