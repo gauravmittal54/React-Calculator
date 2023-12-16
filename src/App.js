@@ -14,6 +14,7 @@ const initialState = {
   history: [],
 };
 
+//export actions for their availability to other components
 export const ACTIONS = {
   ADD_DIGIT: "add-digit",
   CHOOSE_OPERATION: "choose-operation",
