@@ -164,6 +164,7 @@ function formatOperand(operand) {
 }
 
 function App() {
+  //destructuring state into currentOperand,previousOperand,operation,history
   const [{ currentOperand, previousOperand, operation, history }, dispatch] = useReducer(
     reducer,
     initialState
@@ -215,8 +216,9 @@ function App() {
         <button onClick={toggleHistory}>
           <FontAwesomeIcon icon={faHistory} />
         </button>
+        //dispatch being called with appropriate action type
         <button
-          onClick={() => dispatch({ type: ACTIONS.CLEAR })}
+          onClick={() => dispatch({ type: ACTIONS.CLEAR })}   
         >
           AC
         </button>
