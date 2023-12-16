@@ -217,7 +217,7 @@ function App() {
         <button onClick={toggleHistory}>
           <FontAwesomeIcon icon={faHistory} />
         </button>
-        //dispatch being called with appropriate action type
+        {/* dispatch being called with appropriate action type */}
         <button
           onClick={() => dispatch({ type: ACTIONS.CLEAR })}   
         >
