@@ -2,6 +2,9 @@
 
 This project is a simple calculator web application built with React. It supports basic arithmetic operations, maintains a history log of calculations, and features a responsive design.
 
+![image](https://github.com/gauravmittal54/React-Calculator/assets/61792468/782c9094-caae-43ae-a810-a93f4ade2362)
+
+
 ### Hosted link
 [ReactCalculatorApp](https://reactcalculatorapp-yneh.onrender.com/)
 
